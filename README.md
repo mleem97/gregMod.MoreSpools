@@ -99,10 +99,11 @@ Release output: `bin/Release/net6.0/gregMod.MoreSpools.dll`
 
 ```
 gregMod.MoreSpools/
-├── Core.cs                 # MelonLoader entry point and shop integration
-├── Config.cs               # JSON configuration loading
-├── SpinnerDefinitions.cs   # Custom spool definitions
-├── Patches.cs              # Game Harmony patches
+├── src/
+│   ├── Core.cs             # MelonLoader entry point and shop integration
+│   ├── Config.cs           # JSON configuration loading
+│   ├── SpinnerDefinitions.cs # Custom spool definitions
+│   └── Patches.cs          # Game Harmony patches
 ├── references/             # Current game and MelonLoader assemblies
 ├── gregMod.MoreSpools.csproj
 └── README.md

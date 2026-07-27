@@ -127,7 +127,7 @@ namespace GregModMoreSpools
             // Recreate template holder (destroys old one from a prior run).
             if (TemplateHolder != null)
                 Object.Destroy(TemplateHolder);
-            TemplateHolder = new GameObject("LargerSpools_TemplateHolder");
+            TemplateHolder = new GameObject("gregModMoreSpools_TemplateHolder");
             TemplateHolder.SetActive(false);
             Object.DontDestroyOnLoad(TemplateHolder);
 
