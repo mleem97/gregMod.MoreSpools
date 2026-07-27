@@ -4,6 +4,7 @@
 
 [![Discord](https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/greg)
 [![gregFramework](https://img.shields.io/badge/gregFramework-Website-blue?style=for-the-badge)](https://gregframework.eu)
+[![License](https://img.shields.io/badge/License-Apache%202.0-green?style=for-the-badge)](./LICENSE)
 [![Version](https://img.shields.io/badge/Version-1.1.1-orange?style=for-the-badge)]()
 [![GameVersion](https://img.shields.io/badge/Game%20Version-1.1.0-yellow?style=for-the-badge)]()
 [![Unity](https://img.shields.io/badge/Unity-6000.4.12f1-black?style=for-the-badge&logo=unity&logoColor=white)]()
@@ -14,13 +15,17 @@
 - **Discord / Support:** [discord.gg/greg](https://discord.gg/greg)
 - **Website:** [gregframework.eu](https://gregframework.eu)
 
+## Overview
+
+**gregMod.MoreSpools** adds configurable long cable spools to the Data Center shop without requiring a recompile for configuration changes.
+
 ## Features
 
 - Additional spool lengths available in the shop
 - Each length is offered as a **regular** and an **RGB** (custom colour) variant
 - Lengths are fully configurable in `UserData/LargerSpools.json`
 
-## Requirements
+## Dependencies
 
 - [MelonLoader](https://melonwiki.xyz/) v0.7.2 or newer
 
@@ -117,3 +122,7 @@ gregMod.MoreSpools/
 ## License
 
 See the project source and original distribution terms before redistribution.
+
+## 🚀 Join the gregFramework Team!
+
+Contributions, testing, documentation, and feedback are welcome in the [greg Discord](https://discord.gg/greg).
