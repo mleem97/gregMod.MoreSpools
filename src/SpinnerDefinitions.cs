@@ -12,12 +12,14 @@ namespace GregModMoreSpools
         internal readonly float  LengthMeters;
         internal readonly float  PriceMultiplier;  // relative to vanilla base price
         internal readonly string GuidSuffix;       // auto-derived from length; never change
+        internal readonly bool   IsCustomLength;
 
-        internal LengthDef(float lengthMeters, float priceMultiplier)
+        internal LengthDef(float lengthMeters, float priceMultiplier, bool isCustomLength = false)
         {
             LengthMeters    = lengthMeters;
             PriceMultiplier = priceMultiplier;
-            GuidSuffix      = $"{(int)lengthMeters}m";  // e.g. "500m", "1000m"
+            IsCustomLength  = isCustomLength;
+            GuidSuffix      = isCustomLength ? "custom" : $"{(int)lengthMeters}m";
         }
     }
 
@@ -93,6 +95,19 @@ namespace GregModMoreSpools
                     }
                     defs.Add(new LengthDef(lc.LengthMeters, lc.PriceMultiplier));
                     count++;
+                }
+
+                if (config.CustomLength?.Enabled == true && config.CustomLength.LengthMeters > 0f)
+                {
+                    if (defs.Count >= MaxPerType)
+                    {
+                        MelonLogger.Warning($"Config: no slot left for Custom Length on cableType {cableType}.");
+                    }
+                    else
+                    {
+                        defs.Add(new LengthDef(config.CustomLength.LengthMeters,
+                            config.CustomLength.PriceMultiplier, true));
+                    }
                 }
 
                 if (defs.Count > 0)

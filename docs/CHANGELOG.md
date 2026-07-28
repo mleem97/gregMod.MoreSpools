@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.2.0
+
+- Added 1 km, 2 km, 5 km, and 10 km default spool lengths.
+- Added configurable `Custom Length` and `Custom Length (RGB)` shop entries.
+- Added backwards-compatible configuration migration for existing `LargerSpools.json` files.
+
 ## v1.1.1
 
 - Rebranded the plugin as `gregMod.MoreSpools`

@@ -5,7 +5,7 @@
 [![Discord](https://img.shields.io/discord/1392073682133848075?style=for-the-badge&logo=discord&logoColor=white&label=Discord)](https://discord.gg/greg)
 [![gregFramework](https://img.shields.io/badge/gregFramework-Website-blue?style=for-the-badge)](https://gregframework.eu)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green?style=for-the-badge)](./LICENSE)
-[![Version](https://img.shields.io/badge/Version-1.1.1-orange?style=for-the-badge)]()
+[![Version](https://img.shields.io/badge/Version-1.2.0-orange?style=for-the-badge)]()
 [![GameVersion](https://img.shields.io/badge/Game%20Version-1.1.0-yellow?style=for-the-badge)]()
 [![Unity](https://img.shields.io/badge/Unity-6000.4.12f1-black?style=for-the-badge&logo=unity&logoColor=white)]()
 
@@ -23,6 +23,8 @@
 
 - Additional spool lengths available in the shop
 - Each length is offered as a **regular** and an **RGB** (custom colour) variant
+- Default 1 km, 2 km, 5 km, and 10 km lengths for cable type `0`
+- A dedicated **Custom Length** and **Custom Length (RGB)** spool entry
 - Lengths are fully configurable in `UserData/LargerSpools.json`
 
 ## Dependencies
@@ -44,10 +46,16 @@ On first launch the mod writes `UserData/LargerSpools.json` with default values:
 {
   "cable_types": {
     "0": [
-      { "length_m": 500,  "price_multiplier": 2.0 },
       { "length_m": 1000, "price_multiplier": 3.0 },
-      { "length_m": 2000, "price_multiplier": 5.0 }
+      { "length_m": 2000, "price_multiplier": 4.5 },
+      { "length_m": 5000, "price_multiplier": 8.0 },
+      { "length_m": 10000, "price_multiplier": 14.0 }
     ]
+  },
+  "custom_length": {
+    "enabled": true,
+    "length_m": 2500,
+    "price_multiplier": 6.0
   }
 }
 ```
@@ -75,6 +83,11 @@ You can add entries for other cable types the same way:
 | `length_m`         | Spool length in metres (must be > 0)                               |
 | `price_multiplier` | Price relative to the vanilla spool of that cable type             |
 
+`custom_length.enabled` adds the dedicated **Custom Length** shop item. Its `length_m`
+and `price_multiplier` apply to the custom entry for every cable type listed in
+`cable_types`. Set `enabled` to `false` to hide it. The custom entry uses its own
+stable shop GUID, so it remains distinguishable from fixed lengths.
+
 Each cable type supports up to **16** custom lengths.  
 Cable types not listed in the JSON receive no additional lengths.
 
@@ -98,7 +111,7 @@ Requirements:
 dotnet build -c Release
 ```
 
-Release output: `bin/Release/net6.0/gregMod.MoreSpools.dll`
+Release output: `bin/x64/Release/net6.0/gregMod.MoreSpools.dll`
 
 ## Project Structure
 

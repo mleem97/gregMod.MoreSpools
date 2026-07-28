@@ -6,7 +6,7 @@ using Il2Cpp;
 using MelonLoader;
 using UnityEngine;
 
-[assembly: MelonInfo(typeof(GregModMoreSpools.Core), "gregMod.MoreSpools", "1.1.1", "TeamGreg Modding (leoms1408 / mleem97)")]
+[assembly: MelonInfo(typeof(GregModMoreSpools.Core), "gregMod.MoreSpools", "1.2.0", "TeamGreg Modding (leoms1408 / mleem97)")]
 [assembly: MelonGame("Waseku", "Data Center")]
 
 namespace GregModMoreSpools
@@ -358,7 +358,9 @@ namespace GregModMoreSpools
                     if (!Registry.ContainsKey(id)) continue;
 
                     int price   = (int)(basePrice * ld.PriceMultiplier);
-                    string label = $"{vt.DisplayName} – {ld.LengthMeters}m";
+                    string label = ld.IsCustomLength
+                        ? $"{vt.DisplayName} – Custom Length ({ld.LengthMeters:0}m)"
+                        : $"{vt.DisplayName} – {ld.LengthMeters}m";
                     string guid  = $"larger_spools_t{typeIdx}_{ld.GuidSuffix}";
 
                     // (a) Regular
