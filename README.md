@@ -1,145 +1,89 @@
 # gregMod.MoreSpools
 
-> Adds configurable long cable spools to **Data Center**, with regular and RGB variants.
+> gregMod.MoreSpools** adds configurable long cable spools to the Data Center shop without requiring a recompile for configuration changes.
 
-[![Discord](https://img.shields.io/discord/1392073682133848075?style=for-the-badge&logo=discord&logoColor=white&label=Discord)](https://discord.gg/greg)
-[![gregFramework](https://img.shields.io/badge/gregFramework-Website-blue?style=for-the-badge)](https://gregframework.eu)
-[![License](https://img.shields.io/badge/License-Apache%202.0-green?style=for-the-badge)](./LICENSE)
-[![Version](https://img.shields.io/badge/Version-1.2.0-orange?style=for-the-badge)]()
-[![GameVersion](https://img.shields.io/badge/Game%20Version-1.1.0-yellow?style=for-the-badge)]()
-[![Unity](https://img.shields.io/badge/Unity-6000.4.12f1-black?style=for-the-badge&logo=unity&logoColor=white)]()
+![License](https://img.shields.io/github/license/mleem97/gregMod.MoreSpools?style=for-the-badge) ![Last commit](https://img.shields.io/github/last-commit/mleem97/gregMod.MoreSpools?style=for-the-badge) ![Repo size](https://img.shields.io/github/repo-size/mleem97/gregMod.MoreSpools?style=for-the-badge) ![Stars](https://img.shields.io/github/stars/mleem97/gregMod.MoreSpools?style=for-the-badge)
 
 ## Links
 
-- **Repository:** [github.com/mleem97/gregMod.MoreSpools](https://github.com/mleem97/gregMod.MoreSpools)
-- **Discord / Support:** [discord.gg/greg](https://discord.gg/greg)
-- **Website:** [gregframework.eu](https://gregframework.eu)
+- **Repository:** [https://github.com/mleem97/gregMod.MoreSpools](https://github.com/mleem97/gregMod.MoreSpools)
+- **Issues:** [https://github.com/mleem97/gregMod.MoreSpools/issues](https://github.com/mleem97/gregMod.MoreSpools/issues)
+- **Releases:** [https://github.com/mleem97/gregMod.MoreSpools/releases](https://github.com/mleem97/gregMod.MoreSpools/releases)
 
 ## Overview
 
-**gregMod.MoreSpools** adds configurable long cable spools to the Data Center shop without requiring a recompile for configuration changes.
+**gregMod.MoreSpools** — gregMod.MoreSpools** adds configurable long cable spools to the Data Center shop without requiring a recompile for configuration changes.
+
+Siehe [docs/INDEX.md](docs/INDEX.md) für die komplette Dokumentation.
+
+## Compatibility
+
+| Plattform | Status |
+|---|---|
+| Windows x64 | Supported |
+| Linux x64 | Supported |
 
 ## Features
 
-- Additional spool lengths available in the shop
-- Each length is offered as a **regular** and an **RGB** (custom colour) variant
-- Default 1 km, 2 km, 5 km, and 10 km lengths for cable type `0`
-- A dedicated **Custom Length** and **Custom Length (RGB)** spool entry
-- Lengths are fully configurable in `UserData/LargerSpools.json`
-
-## Dependencies
-
-- [MelonLoader](https://melonwiki.xyz/) v0.7.2 or newer
+- Siehe [docs/INDEX.md](docs/INDEX.md) und [QUICKSTART.md](QUICKSTART.md)
 
 ## Installation
 
-1. Install MelonLoader for Data Center if you haven't already
-2. Copy `gregMod.MoreSpools.dll` into `Data Center/Mods/`
-3. Launch the game — `UserData/LargerSpools.json` is created automatically on first run
-4. Edit the JSON to add or change lengths, then restart the game
-
-## Configuration
-
-On first launch the mod writes `UserData/LargerSpools.json` with default values:
-
-```json
-{
-  "cable_types": {
-    "0": [
-      { "length_m": 1000, "price_multiplier": 3.0 },
-      { "length_m": 2000, "price_multiplier": 4.5 },
-      { "length_m": 5000, "price_multiplier": 8.0 },
-      { "length_m": 10000, "price_multiplier": 14.0 }
-    ]
-  },
-  "custom_length": {
-    "enabled": true,
-    "length_m": 2500,
-    "price_multiplier": 6.0
-  }
-}
-```
-
-The key is the vanilla `CableSpinner.cableType` value.  
-You can add entries for other cable types the same way:
-
-```json
-{
-  "cable_types": {
-    "0": [
-      { "length_m": 500,  "price_multiplier": 2.0 },
-      { "length_m": 1000, "price_multiplier": 3.0 }
-    ],
-    "1": [
-      { "length_m": 500,  "price_multiplier": 2.0 },
-      { "length_m": 2000, "price_multiplier": 5.0 }
-    ]
-  }
-}
-```
-
-| Field              | Description                                                        |
-|--------------------|--------------------------------------------------------------------|
-| `length_m`         | Spool length in metres (must be > 0)                               |
-| `price_multiplier` | Price relative to the vanilla spool of that cable type             |
-
-`custom_length.enabled` adds the dedicated **Custom Length** shop item. Its `length_m`
-and `price_multiplier` apply to the custom entry for every cable type listed in
-`cable_types`. Set `enabled` to `false` to hide it. The custom entry uses its own
-stable shop GUID, so it remains distinguishable from fixed lengths.
-
-Each cable type supports up to **16** custom lengths.  
-Cable types not listed in the JSON receive no additional lengths.
-
-> **Important:** Once a save has been created, **do not change existing `length_m` values**.  
-> The save GUID is derived from the length; changing it will break existing saves for that spool.  
-> To add new lengths, append entries — never reorder or remove existing ones.
-
-## Notes
-
-- Vanilla already ships 100 m, 200 m, and 500 m spools — only add lengths not already covered by vanilla for the relevant cable types
-- The RGB variant lets players pick a custom hex colour via the vanilla colour picker
+Siehe [QUICKSTART.md](QUICKSTART.md).
 
 ## Build from Source
 
-Requirements:
-
-- .NET 6 SDK
-- local Data Center / MelonLoader installation
-
 ```bash
-dotnet build -c Release
+git clone git@github.com:mleem97/gregMod.MoreSpools.git
+cd gregMod.MoreSpools
 ```
 
-Release output: `bin/x64/Release/net6.0/gregMod.MoreSpools.dll`
+Details: [QUICKSTART.md](QUICKSTART.md), [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## Project Structure
+## Repository Layout
 
 ```
-gregMod.MoreSpools/
-├── src/
-│   ├── Core.cs             # MelonLoader entry point and shop integration
-│   ├── Config.cs           # JSON configuration loading
-│   ├── SpinnerDefinitions.cs # Custom spool definitions
-│   └── Patches.cs          # Game Harmony patches
-├── references/             # Current game and MelonLoader assemblies
-├── gregMod.MoreSpools.csproj
-└── README.md
+├── README.md            # Diese Datei
+├── QUICKSTART.md        # Schnellstart
+├── CHANGELOG.md         # Changelog (Keep a Changelog)
+├── CONTRIBUTING.md      # Mitmachen
+├── SECURITY.md          # Sicherheitsmeldungen
+├── CODE_OF_CONDUCT.md   # Verhaltenskodex
+├── AGENTS.md            # Hinweise für KI-Agenten
+├── LICENSE              # Apache-2.0
+├── VERSION              # Single Source of Truth für die Version
+├── docs/                # Dokumentation ([Index](docs/INDEX.md))
+├── scripts/             # Build-/Hilfsskripte
+├── tests/               # Tests
+├── references/          # Referenzen
+├── sponsors/            # Sponsoren
+└── examples/            # Beispiele
 ```
+
+## API Documentation
+
+Siehe [`docs/INDEX.md`](docs/INDEX.md).
 
 ## Credits
 
-- Original implementation: [leoms1408](https://github.com/leoms1408)
-- gregMod rebranding and current game update: [TeamGreg Modding](https://github.com/teamGregModding)
+| Rolle | Contributor |
+|---|---|
+| **Codebase** | [mleem97](https://github.com/mleem97) |
+
+## Contributing
+
+Siehe [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-See the project source and original distribution terms before redistribution.
+Apache-2.0 — siehe [`LICENSE`](LICENSE).
 
 ## 🚀 Join the gregFramework Team!
 
-### macOS Support
+Baust du gerne Mods, Tools oder Docs? Melde dich: **apply@gregframework.eu** oder via
+[Discord](https://discord.gg/greg) — Code, Assets, Docs, Testing, Infra, Community.
 
-A native macOS version of Data Center already exists. At the moment, however, there is no implementation path available for macOS support in this mod, and I do not have access to an Apple device for development or testing. I am actively looking for contributors who can help make macOS support possible. See “Join the gregFramework Team” below.
+---
 
-Contributions, testing, documentation, and feedback are welcome in the [greg Discord](https://discord.gg/greg).
+**gregFramework — powered by the community.**
+

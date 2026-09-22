@@ -49,7 +49,7 @@ namespace GregModMoreSpools
             var config = ConfigManager.Load();
             LengthList.LoadFromConfig(config);
             HarmonyInstance.PatchAll();
-            LoggerInstance.Msg("gregMod.MoreSpools v1.1.1 loaded!");
+            LoggerInstance.Msg("gregMod.MoreSpools v1.2.0 loaded!");
         }
 
         // -----------------------------------------------------------------------
@@ -376,17 +376,10 @@ namespace GregModMoreSpools
                 }
             }
 
-            var containerRt = shopParent.GetComponent<UnityEngine.RectTransform>();
-            if (containerRt != null && itemHeight > 0f && addedCount > 0)
-            {
-                var sd = containerRt.sizeDelta;
-                sd.y += itemHeight * addedCount;
-                containerRt.sizeDelta = sd;
-            }
-
             UnityEngine.Canvas.ForceUpdateCanvases();
             LoggerInstance.Msg($"Added {addedCount} shop button(s).");
         }
+
 
         // -----------------------------------------------------------------------
         // Clones sourceItem, applies the custom SO data, and adds it to parent.
