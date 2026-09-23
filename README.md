@@ -6,6 +6,7 @@
 
 ## Links
 
+- **Steam Workshop:** [My Workshop (Data Center)](https://steamcommunity.com/id/frikadelle3000/myworkshopfiles/?appid=4170200)
 - **Repository:** [https://github.com/mleem97/gregMod.MoreSpools](https://github.com/mleem97/gregMod.MoreSpools)
 - **Issues:** [https://github.com/mleem97/gregMod.MoreSpools/issues](https://github.com/mleem97/gregMod.MoreSpools/issues)
 - **Releases:** [https://github.com/mleem97/gregMod.MoreSpools/releases](https://github.com/mleem97/gregMod.MoreSpools/releases)
