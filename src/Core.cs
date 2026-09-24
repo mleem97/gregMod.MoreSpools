@@ -44,6 +44,9 @@ namespace GregModMoreSpools
         // Guard: prevents AddShopItems from running twice for the same scene load.
         private bool _shopSetupDone;
 
+        // ID-range overlap warning (RealisticModules): once per session.
+        private static bool _rangeWarned;
+
         public override void OnInitializeMelon()
         {
             var config = ConfigManager.Load();
@@ -173,6 +176,19 @@ namespace GregModMoreSpools
             mgm.cableSpinnerPrefab = extended;
             MelonLogger.Msg($"Setup complete: {VanillaTypes.Count} types, " +
                             $"up to {LengthList.MaxPerType} lengths each → IDs {MOD_ID_BASE}–{requiredLength - 1}");
+            // ID-range guard: RealisticModules owns 110+ (prefab) / 210+ (bulk).
+            // More than 9 lengths on type 0 reaches 110+ -> wrong prefabs when
+            // both mods are active. Warn once instead of silently colliding.
+            try
+            {
+                if (!_rangeWarned && requiredLength - 1 >= 110)
+                {
+                    _rangeWarned = true;
+                    MelonLogger.Warning("MoreSpools IDs reach 110+ — overlapping RealisticModules range. " +
+                        "Reduce lengths per type (max 9 on type 0) or expect wrong spools when both mods run.");
+                }
+            }
+            catch { }
         }
 
         // -----------------------------------------------------------------------
