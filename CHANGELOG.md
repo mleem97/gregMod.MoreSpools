@@ -1,20 +1,20 @@
 # Changelog — gregMod.MoreSpools
 
-Format: [Keep a Changelog](https://keepachangelog.com/de/1.0.0/). Version: siehe [`VERSION`](VERSION).
+Format: [Keep a Changelog](https://keepachangelog.com/de/1.0.0/). Version: see [`VERSION`](VERSION).
 
 ## [Unreleased]
 
 ### Fixed
 
-- Kauf-Duplikate: `GetPrefabForItem`-Prefix liefert den Kauf-Klon jetzt inaktiv
-  unter dem TemplateHolder (Prefab-Semantik) statt als Live-Objekt in der Szene.
-  Pro Kauf blieb sonst ein Orphan zurueck (sichtbarer Klon-Haufen + Save-Pollution
-  → verdoppelte Rollen nach Save/Load).
+- Purchase duplicates: `GetPrefabForItem` prefix now delivers the purchase clone inactive
+  under the template holder (prefab semantics) instead of as a live object in the scene.
+  Otherwise, one orphan remained per purchase (visible clone pile + save pollution
+  → duplicated spools after save/load).
 
 ### Added
 
-- Einheitliches Open-Source-Layout (README, Docs, Badges) nach gregCore-Vorbild.
+- Unified open-source layout (README, docs, badges) following the gregCore template.
 
 ## [0.1.0] — 2026-09-22
 
-- Initialer standardisierter Stand.
+- Initial standardized baseline.
