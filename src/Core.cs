@@ -6,7 +6,7 @@ using Il2Cpp;
 using MelonLoader;
 using UnityEngine;
 
-[assembly: MelonInfo(typeof(GregModMoreSpools.Core), "gregMod.MoreSpools", "1.2.0", "TeamGreg Modding (leoms1408 / mleem97)")]
+[assembly: MelonInfo(typeof(GregModMoreSpools.Core), "gregMod.MoreSpools", "1.2.1", "TeamGreg Modding (leoms1408 / mleem97)")]
 [assembly: MelonGame("Waseku", "Data Center")]
 
 namespace GregModMoreSpools
@@ -49,7 +49,7 @@ namespace GregModMoreSpools
             var config = ConfigManager.Load();
             LengthList.LoadFromConfig(config);
             HarmonyInstance.PatchAll();
-            LoggerInstance.Msg("gregMod.MoreSpools v1.2.0 loaded!");
+            LoggerInstance.Msg("gregMod.MoreSpools v1.2.1 loaded!");
         }
 
         // -----------------------------------------------------------------------

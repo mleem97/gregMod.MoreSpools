@@ -44,6 +44,11 @@ namespace GregModMoreSpools
     // Patch: ComputerShop.GetPrefabForItem (Prefix)
     // Intercepts CableSpinner purchases with our custom itemIDs (100+) and
     // returns a freshly cloned prefab.
+    //
+    // WICHTIG (Fix v1.2.1): Der Klon wird INAKTIV unter dem TemplateHolder
+    // zurueckgegeben (Prefab-Semantik wie Vanilla). Ein live in die Szene
+    // gelegter Klon blieb pro Kauf als Orphan zurueck (sichtbarer
+    // Klon-Haufen + Save-Pollution -> Duplikate nach Save/Load).
     // =========================================================================
     [HarmonyPatch(typeof(ComputerShop), nameof(ComputerShop.GetPrefabForItem))]
     internal static class PatchGetPrefabForItem
@@ -58,7 +63,10 @@ namespace GregModMoreSpools
             var mgm = MainGameManager.instance;
             if (mgm == null) return true;
 
-            __result = Core.BuildSpinnerPrefab(mgm, itemID, entry);
+            var holder = Core.TemplateHolder != null ? Core.TemplateHolder.transform : null;
+            __result = Core.BuildSpinnerPrefab(mgm, itemID, entry, holder);
+            if (__result != null)
+                __result.SetActive(false);
             return false;
         }
     }
