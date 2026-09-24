@@ -2,6 +2,12 @@
 
 Format: [Keep a Changelog](https://keepachangelog.com/de/1.0.0/). Version: see [`VERSION`](VERSION).
 
+## [1.3.0] — 2026-09-24
+
+### Changed
+
+- ID-range overlap guard (warn at 110+, RealisticModules range).
+
 ## [Unreleased]
 
 ### Fixed

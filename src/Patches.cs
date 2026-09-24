@@ -45,7 +45,7 @@ namespace GregModMoreSpools
     // Intercepts CableSpinner purchases with our custom itemIDs (100+) and
     // returns a freshly cloned prefab.
     //
-    // IMPORTANT (fix v1.2.1): clone returned INACTIVE under TemplateHolder
+    // IMPORTANT (fix v1.3.0): clone returned INACTIVE under TemplateHolder
     // (prefab semantics like vanilla). A live clone placed in the scene
     // stayed behind as orphan per purchase (visible
     // clone pile + save pollution -> duplicates after save/load).
