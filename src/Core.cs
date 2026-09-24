@@ -5,6 +5,7 @@ using HarmonyLib;
 using Il2Cpp;
 using MelonLoader;
 using UnityEngine;
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("ModCoverage.Tests")]
 
 [assembly: MelonInfo(typeof(GregModMoreSpools.Core), "gregMod.MoreSpools", "1.3.0", "TeamGreg Modding (leoms1408 / mleem97)")]
 [assembly: MelonGame("Waseku", "Data Center")]
